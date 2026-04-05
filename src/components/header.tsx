@@ -11,9 +11,9 @@ export function Header() {
             <div className="container mx-auto flex h-16 items-center justify-between px-4">
                 <Link to={"/"}>
                     <img
-                        src={theme === "dark" ? "/luskylogo.png" : "/luskylogo.png"}
+                        src={theme === "dark" ? "/husky-dark-logo.png" : "/husky-light-logo.png"}
                         alt="Lusky logo"
-                        className="h-20"
+                        className="h-38"
                     />
                 </Link>
 
