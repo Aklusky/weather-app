@@ -44,7 +44,7 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
     }, {} as Record<string, DailyForecast>);
 
     // Get next 5 days
-    const nextDays = Object.values(dailyForecasts).slice(1, 6);
+    const nextDays = Object.values(dailyForecasts).slice(0, 6);
 
     // Format temperature
     const formatTemp = (temp: number) => `${Math.round(temp)}°`;
@@ -61,7 +61,7 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
                             key={day.date}
                             className="grid grid-cols-3 items-center gap-4 rounded-lg border p-4"
                         >
-                            <div>
+                            <div className="min-w-0">
                                 <p className="font-medium">
                                     {format(new Date(day.date * 1000), "EEE, MMM d")}
                                 </p>
