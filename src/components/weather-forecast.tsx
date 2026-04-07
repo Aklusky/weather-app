@@ -71,7 +71,7 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
                             </div>
                             <div className="flex flex-col sm:flex-row sm:justify-between gap-2">
                                 {/* Temps */}
-                                <div className="flex justify-center gap-4">
+                                <div className="flex items-center gap-4 shrink-0">
                                     <span className="flex items-center text-blue-500">
                                         <ArrowDown className="mr-1 h-4 w-4" />
                                         {formatTemp(day.temp_min)}
@@ -83,14 +83,15 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
                                 </div>
 
                                 {/* Humidity + Wind */}
-                                <div className="flex justify-center sm:justify-end gap-4">
+                                <div className="flex items-center gap-4 shrink-0">
                                     <span className="flex items-center gap-1">
                                         <Droplets className="h-4 w-4 text-blue-500" />
                                         <span className="text-sm">{day.humidity}%</span>
                                     </span>
+
                                     <span className="flex items-center gap-1">
                                         <Wind className="h-4 w-4 text-blue-500" />
-                                        <span className="text-sm">{day.wind}m/s</span>
+                                        <span className="text-sm">{day.wind} m/s</span>
                                     </span>
                                 </div>
                             </div>
