@@ -57,21 +57,19 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
             <CardContent>
                 <div className="grid gap-4">
                     {nextDays.map((day) => (
-                        <div
-                            key={day.date}
-                            className="grid grid-cols-3 items-center gap-4 rounded-lg border p-4"
-                        >
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                             <div className="min-w-0">
                                 <p className="font-medium">
                                     {format(new Date(day.date * 1000), "EEE, MMM d")}
                                 </p>
-                                <p className="text-sm text-muted-foreground capitalize">
+                                <p className="text-sm text-muted-foreground capitalize break-words">
                                     {day.weather.description}
                                 </p>
                             </div>
-                            <div className="flex flex-col sm:flex-row sm:justify-between gap-2">
+
+                            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-end sm:gap-6">
                                 {/* Temps */}
-                                <div className="flex justify-center gap-4">
+                                <div className="flex flex-wrap items-center gap-4">
                                     <span className="flex items-center text-blue-500">
                                         <ArrowDown className="mr-1 h-4 w-4" />
                                         {formatTemp(day.temp_min)}
@@ -83,7 +81,7 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
                                 </div>
 
                                 {/* Humidity + Wind */}
-                                <div className="flex justify-center sm:justify-end gap-4">
+                                <div className="flex flex-wrap items-center gap-4">
                                     <span className="flex items-center gap-1">
                                         <Droplets className="h-4 w-4 text-blue-500" />
                                         <span className="text-sm">{day.humidity}%</span>
