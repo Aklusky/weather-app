@@ -72,7 +72,7 @@ export function CurrentWeather({ data, locationName }: CurrentWeatherProps) {
                                 <div className="space-y-0.5">
                                     <p className="text-sm font-medium">Wind Speed</p>
                                     <p className="text-sm text-muted-foreground">
-                                        {(speed * 2.237).toFixed(1)} mi/hr
+                                        {(speed * 2.237).toFixed(1)} mi/h
                                     </p>
                                 </div>
                             </div>
