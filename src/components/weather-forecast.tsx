@@ -91,7 +91,8 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
 
                                     <span className="flex items-center gap-1">
                                         <Wind className="h-4 w-4 text-blue-500" />
-                                        <span className="text-sm">{day.wind} m/s</span>
+                                        <span className="text-sm">{(day.wind * 2.237).toFixed(1)} mi/h</span>
+
                                     </span>
                                 </div>
                             </div>
