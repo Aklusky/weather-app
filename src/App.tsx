@@ -6,6 +6,7 @@ import { Layout } from "./components/layout";
 import { ThemeProvider } from "./context/theme-provider";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CityPage } from "./pages/city-page";
+import { useEffect } from "react";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,6 +20,33 @@ const queryClient = new QueryClient({
 });
 
 function App() {
+
+  useEffect(() => {
+    const checkVersion = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.BASE_URL}version.json?v=${Date.now()}`,
+          { cache: "no-store" }
+        );
+
+        const data = await response.json();
+        const savedVersion = localStorage.getItem("app-version");
+
+        if (savedVersion && savedVersion !== data.version) {
+          localStorage.setItem("app-version", data.version);
+          window.location.reload();
+          return;
+        }
+
+        localStorage.setItem("app-version", data.version);
+      } catch {
+        // Ignore if version check fails
+      }
+    };
+
+    checkVersion();
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
