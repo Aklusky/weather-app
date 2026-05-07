@@ -13,7 +13,7 @@ export function Header() {
                     <img
                         src={theme === "dark" ? "/husky-dark-logo.png" : "/husky-light-logo.png"}
                         alt="Lusky logo"
-                        className="h-38"
+                        className="h-42 w-auto translate-y-2"
                     />
                 </Link>
 
